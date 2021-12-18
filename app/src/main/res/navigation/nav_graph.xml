@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment2">
+
+    <fragment
+        android:id="@+id/splashScreenFragment2"
+        android:name="com.length.icthack3.ui.main.screens.SplashScreenFragment"
+        android:label="SplashScreenFragment" >
+        <action
+            android:id="@+id/action_splashScreenFragment2_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment2_to_enterFragment2"
+            app:destination="@id/enterFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.length.icthack3.ui.main.screens.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment" />
+    <fragment
+        android:id="@+id/registrationFragment2"
+        android:name="com.length.icthack3.ui.main.screens.RegistrationFragment"
+        android:label="RegistrationFragment" >
+        <action
+            android:id="@+id/action_registrationFragment2_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_registrationFragment2_to_enterFragment2"
+            app:destination="@id/enterFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/enterFragment2"
+        android:name="com.length.icthack3.ui.main.screens.EnterFragment"
+        android:label="EnterFragment" >
+        <action
+            android:id="@+id/action_enterFragment2_to_registrationFragment2"
+            app:destination="@id/registrationFragment2" />
+        <action
+            android:id="@+id/action_enterFragment2_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+</navigation>
