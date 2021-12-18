@@ -1,8 +1,11 @@
 package com.length.icthack3.domain.repository
 
+import androidx.lifecycle.LiveData
 import com.length.icthack3.domain.model.User
 
 interface UserRepository {
+
+    suspend fun getUserList(): LiveData<List<User>>
 
     suspend fun addUser(user: User)
 

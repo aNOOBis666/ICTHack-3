@@ -1,5 +1,7 @@
 package com.length.icthack3.data
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.FirebaseFirestore
 import com.length.icthack3.domain.model.User
 import com.length.icthack3.domain.repository.UserRepository
@@ -13,6 +15,17 @@ class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository {
             .get()
             .await()
             .toObject(User::class.java)
+    }
+
+    override suspend fun getUserList(): LiveData<List<User>> {
+        val userList = db.collection(User.TABLE_NAME)
+            .get()
+            .addOnFailureListener {
+                it.printStackTrace()
+            }
+            .await()
+            .toObjects(User::class.java)
+        return MutableLiveData(userList)
     }
 
     override suspend fun addUser(user: User) {
