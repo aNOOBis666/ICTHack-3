@@ -6,13 +6,13 @@ import com.length.icthack3.domain.model.User
 
 interface AnimalRepository {
 
-    fun getAnimalListForUser(user: User): LiveData<List<Animal>>
+    suspend fun getAnimalListForUser(user: User): LiveData<List<Animal>>
 
-    fun deleteAnimal(animal: Animal)
+    suspend fun deleteAnimal(animal: Animal)
 
-    fun getAnimal(animal: Animal): Animal
+    suspend fun editAnimal(animal: Animal)
 
-    fun editAnimal(animal: Animal)
+    suspend fun addAnimal(animal: Animal)
 
-    fun addAnimal(animal: Animal)
+    suspend fun getAnimal(animalId: String): Animal?
 }
