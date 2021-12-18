@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.screens.MainActivity" android:exported="true"/>
+        <activity android:name=".presentation.screens.GameActivity" android:exported="true"/>
         <activity android:name=".presentation.screens.LoginActivity" android:exported="true"/>
     </application>
 

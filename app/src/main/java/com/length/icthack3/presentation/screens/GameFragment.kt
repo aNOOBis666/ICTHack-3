@@ -8,22 +8,22 @@ import android.view.ViewGroup
 import com.length.icthack3.R
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
-import com.length.icthack3.presentation.viewModels.MainViewModel
+import com.length.icthack3.presentation.viewModels.GameViewModel
 
 
-class MainFragment : Fragment() {
+class GameFragment : Fragment() {
 
     companion object {
-        fun newInstance() = MainFragment()
+        fun newInstance() = GameFragment()
     }
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: GameViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        return inflater.inflate(R.layout.game_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

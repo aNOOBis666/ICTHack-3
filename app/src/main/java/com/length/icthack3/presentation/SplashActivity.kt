@@ -1,11 +1,10 @@
 package com.length.icthack3.presentation
 
 import androidx.appcompat.app.AppCompatActivity
-import android.content.Intent
 
 import android.os.Bundle
 import com.length.icthack3.presentation.screens.LoginActivity
-import com.length.icthack3.presentation.screens.MainActivity
+import com.length.icthack3.presentation.screens.GameActivity
 import com.length.icthack3.presentation.util.startActivityAndFinish
 
 
@@ -19,7 +18,7 @@ class SplashActivity : AppCompatActivity() {
         if (true) {
             startActivityAndFinish(this, LoginActivity::class.java)
         } else {
-            startActivityAndFinish(this, MainActivity::class.java)
+            startActivityAndFinish(this, GameActivity::class.java)
         }
     }
 }
