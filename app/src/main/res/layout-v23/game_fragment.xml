@@ -23,10 +23,10 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/buttonRate"
+        android:id="@+id/buttonShop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/buttonShop"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.896"
@@ -38,7 +38,7 @@
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/buttonShop"
+        android:id="@+id/buttonRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

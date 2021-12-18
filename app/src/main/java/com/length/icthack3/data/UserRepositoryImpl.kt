@@ -69,6 +69,6 @@ class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository {
     }
 
     private fun updateList() {
-        userList.value = userListSorted.toList()
+        userList.postValue(userListSorted.toList())
     }
 }

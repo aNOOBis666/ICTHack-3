@@ -1,10 +1,9 @@
 package com.length.icthack3.presentation
 
-import androidx.appcompat.app.AppCompatActivity
-
 import android.os.Bundle
-import com.length.icthack3.presentation.screens.LoginActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.length.icthack3.presentation.screens.GameActivity
+import com.length.icthack3.presentation.screens.LoginActivity
 import com.length.icthack3.presentation.util.startActivityAndFinish
 
 

@@ -9,18 +9,24 @@ import com.length.icthack3.data.UserRepositoryImpl
 import com.length.icthack3.domain.model.User
 import com.length.icthack3.domain.usecase.GetUserListUseCase
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class RateViewModel: ViewModel() {
 
     private val repository = UserRepositoryImpl(Firebase.firestore)
+
     private val getUserListUseCase = GetUserListUseCase(repository)
+
     var usersData: LiveData<List<User>>? = null
 
 
     fun getUserList(){
-        viewModelScope.launch(Dispatchers.IO) {
-            usersData = getUserListUseCase.getUserList()
+        val data = viewModelScope.async(Dispatchers.IO) {
+            return@async getUserListUseCase.getUserList()
+        }
+        viewModelScope.launch(Dispatchers.IO){
+            usersData = data.await()
         }
     }
 

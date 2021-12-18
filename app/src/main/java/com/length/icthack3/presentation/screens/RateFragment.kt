@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
-import androidx.lifecycle.Observer
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
@@ -21,7 +20,10 @@ class RateFragment: Fragment() {
     }
 
     private val viewModel: RateViewModel by viewModels()
-    private var recyclerView: RecyclerView? = null
+
+    private lateinit var recyclerView: RecyclerView
+
+    private val adapter = RateAdapter()
 
 
     override fun onCreateView(
@@ -40,16 +42,18 @@ class RateFragment: Fragment() {
                     navController.navigate(R.id.action_rateFragment_to_gameFragment2)
                 }
             }
-        requireActivity().onBackPressedDispatcher.addCallback(this@RateFragment, callback)
         this.recyclerView = view.findViewById(R.id.rateRecycler)
+        initRecyclerView()
+        requireActivity().onBackPressedDispatcher.addCallback(this@RateFragment, callback)
+        viewModel.usersData?.observe(this) {
+            adapter.users = it
+        }
         viewModel.getUserList()
-        viewModel.usersData?.observe(this, Observer {recyclerCreation()})
     }
 
-    private fun recyclerCreation(){
-        val users = viewModel.usersData?.value
-        recyclerView?.layoutManager =
+    private fun initRecyclerView(){
+        recyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        recyclerView?.adapter = RateAdapter(users!!)
+        recyclerView.adapter = adapter
     }
 }

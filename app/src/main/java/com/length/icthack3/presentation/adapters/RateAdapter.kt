@@ -9,17 +9,28 @@ import com.length.icthack3.R
 import com.length.icthack3.domain.model.User
 import org.w3c.dom.Text
 
-class RateAdapter(private var users: List<User>):
-    RecyclerView.Adapter<RateAdapter.ScheduleViewHolder>()  {
+class RateAdapter() :
+    RecyclerView.Adapter<RateAdapter.ScheduleViewHolder>() {
 
-    class ScheduleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    var users = listOf<User>()
+    set(value) {
+        field = value
+        notifyDataSetChanged()
+    }
 
+    class ScheduleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val userPosition: TextView = itemView.findViewById(R.id.userPosition)
         val userName: TextView = itemView.findViewById(R.id.userName)
         val userPoints: TextView = itemView.findViewById(R.id.userPoints)
 
+        fun bind(user: User) {
+            userPosition.text = user.id
+            userName.text = user.username
+            userPoints.text = user.balance.toString()
+        }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ScheduleViewHolder {
         val itemView =
             LayoutInflater.from(parent.context)
@@ -28,9 +39,7 @@ class RateAdapter(private var users: List<User>):
     }
 
     override fun onBindViewHolder(holder: ScheduleViewHolder, position: Int) {
-        holder.userPosition.text = users[position].id
-        holder.userName.text = users[position].username
-        holder.userPoints.text = users[position].balance.toString()
+        holder.bind(users[position])
     }
 
     override fun getItemCount() = users.size
