@@ -21,16 +21,7 @@ class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository {
             .toObject(User::class.java)
     }
 
-    override suspend fun getUserList(): LiveData<List<User>> {
-        val users = db.collection(User.TABLE_NAME)
-            .get()
-            .addOnFailureListener {
-                it.printStackTrace()
-            }
-            .await()
-            .toObjects(User::class.java)
-        userListSorted.addAll(users)
-        updateList()
+    override fun getUserList(): LiveData<List<User>> {
         return userList
     }
 
@@ -66,6 +57,18 @@ class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository {
                 updateList()
             }
             .await()
+    }
+
+    override suspend fun getUserListAsync() {
+        val users = db.collection(User.TABLE_NAME)
+            .get()
+            .addOnFailureListener {
+                it.printStackTrace()
+            }
+            .await()
+            .toObjects(User::class.java)
+        userListSorted.addAll(users)
+        updateList()
     }
 
     private fun updateList() {

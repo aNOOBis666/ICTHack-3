@@ -6,20 +6,12 @@
 
 
     <TextView
-        android:id="@+id/userPosition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12pt"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:textSize="12pt"
-        app:layout_constraintStart_toEndOf="@+id/userPosition"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView

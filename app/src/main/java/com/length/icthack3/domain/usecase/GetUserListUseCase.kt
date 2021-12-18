@@ -6,7 +6,7 @@ import com.length.icthack3.domain.repository.UserRepository
 
 class GetUserListUseCase(private val repository: UserRepository) {
 
-    suspend fun getUserList(): LiveData<List<User>> {
+    fun getUserList(): LiveData<List<User>> {
         return repository.getUserList()
     }
 }

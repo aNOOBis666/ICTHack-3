@@ -20,12 +20,10 @@ class RateAdapter() :
 
     class ScheduleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val userPosition: TextView = itemView.findViewById(R.id.userPosition)
         val userName: TextView = itemView.findViewById(R.id.userName)
         val userPoints: TextView = itemView.findViewById(R.id.userPoints)
 
         fun bind(user: User) {
-            userPosition.text = user.id
             userName.text = user.username
             userPoints.text = user.balance.toString()
         }

@@ -1,6 +1,7 @@
 package com.length.icthack3.presentation.screens
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,9 +44,10 @@ class RateFragment: Fragment() {
                 }
             }
         this.recyclerView = view.findViewById(R.id.rateRecycler)
-        initRecyclerView()
         requireActivity().onBackPressedDispatcher.addCallback(this@RateFragment, callback)
-        viewModel.usersData?.observe(this) {
+        initRecyclerView()
+        viewModel.usersData.observe(this) {
+            Log.d("users", viewModel.usersData.toString())
             adapter.users = it
         }
         viewModel.getUserList()
