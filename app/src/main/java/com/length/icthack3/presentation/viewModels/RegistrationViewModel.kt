@@ -4,6 +4,6 @@ import androidx.lifecycle.ViewModel
 
 class RegistrationViewModel: ViewModel() {
     fun registrationViewModelController(){
-        TODO("Registration view model should be here")
+//        TODO("Registration view model should be here")
     }
 }

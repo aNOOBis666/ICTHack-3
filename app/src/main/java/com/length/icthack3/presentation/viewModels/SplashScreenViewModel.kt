@@ -4,6 +4,6 @@ import androidx.lifecycle.ViewModel
 
 class SplashScreenViewModel: ViewModel() {
     fun splashScreenController(){
-        TODO("Make request to check authorize")
+//        TODO("Make request to check authorize")
     }
 }

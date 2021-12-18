@@ -2,9 +2,9 @@ package com.length.icthack3.presentation.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
@@ -28,7 +28,7 @@ class EnterFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val userToken = view.findViewById<TextInputEditText>(R.id.editLogin)
         val navigateToMainButton = view.findViewById<MaterialButton>(R.id.toMainButton)
-        val navigateToRegistrationButton = view.findViewById<TextureView>(R.id.toRegistrationFragment)
+        val navigateToRegistrationButton = view.findViewById<TextView>(R.id.toRegistrationFragment)
 
         navigateToRegistrationButton.setOnClickListener {
             navigateToRegistrationFragment()
@@ -36,7 +36,7 @@ class EnterFragment: Fragment() {
 
         navigateToMainButton.setOnClickListener {
             navigateToMainFragment()
-            TODO("Make request on firebase to check authorize")
+//            TODO("Make request on firebase to check authorize")
         }
 
     }
