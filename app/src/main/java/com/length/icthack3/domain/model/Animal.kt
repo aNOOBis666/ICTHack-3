@@ -6,9 +6,9 @@ data class Animal(
     @Exclude
     val id: String,
 
-    val ownerId: String,
-    val type: String,
-    val name: String,
+    val ownerId: String = "",
+    val type: String = TYPE_PIG,
+    val name: String = "",
     val income: Double = when (type) {
         TYPE_PIG -> 1.0
         TYPE_GOOSE -> 2.0

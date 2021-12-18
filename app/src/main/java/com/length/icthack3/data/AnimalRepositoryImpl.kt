@@ -12,21 +12,29 @@ class AnimalRepositoryImpl(private val db: FirebaseFirestore) : AnimalRepository
 
     private val animalList = MutableLiveData<List<Animal>>()
 
+    private val animalListSorted = sortedSetOf<Animal>({ p0, p1 -> p0.type.compareTo(p1.type) })
+
     override suspend fun getAnimalListForUser(user: User): LiveData<List<Animal>> {
-        val animalList = db.collection(Animal.TABLE_NAME)
+        val animals = db.collection(Animal.TABLE_NAME)
             .get()
             .addOnFailureListener {
                 it.printStackTrace()
             }
             .await()
             .toObjects(Animal::class.java)
-        return MutableLiveData(animalList)
+        animalListSorted.addAll(animals)
+        updateList()
+        return animalList
     }
 
     override suspend fun deleteAnimal(animal: Animal) {
         db.collection(Animal.TABLE_NAME)
             .document(animal.id)
             .delete()
+            .addOnSuccessListener {
+                animalListSorted.remove(animal)
+                updateList()
+            }
             .await()
     }
 
@@ -42,10 +50,26 @@ class AnimalRepositoryImpl(private val db: FirebaseFirestore) : AnimalRepository
         db.collection(Animal.TABLE_NAME)
             .document(animal.id)
             .set(animal)
+            .addOnSuccessListener {
+                val oldAnimal = animalListSorted.find { it.id == animal.id }
+                animalListSorted.remove(oldAnimal)
+                animalListSorted.add(animal)
+                updateList()
+            }
             .await()
     }
 
     override suspend fun addAnimal(animal: Animal) {
-        editAnimal(animal)
+        db.collection(Animal.TABLE_NAME)
+            .add(animal)
+            .addOnSuccessListener {
+                animalListSorted.add(animal)
+                updateList()
+            }
+            .await()
+    }
+
+    private fun updateList() {
+        animalList.value = animalListSorted.toList()
     }
 }

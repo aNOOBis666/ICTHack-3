@@ -6,11 +6,11 @@ class User(
     @Exclude
     val id: String,
 
-    val username: String,
-    val balance: Double,
-    val token: String,
-    val exchangeToken: String,
-    val type: String
+    val username: String = "",
+    val balance: Double = 0.0,
+    val token: String = "",
+    val exchangeToken: String = "",
+    val type: Int = TYPE_STUDENT
 ) {
     companion object {
         const val TABLE_NAME = "User"
