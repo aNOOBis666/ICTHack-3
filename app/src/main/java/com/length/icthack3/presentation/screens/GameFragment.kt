@@ -33,6 +33,8 @@ class GameFragment : Fragment() {
         val rate = view.findViewById<FloatingActionButton>(R.id.buttonRate)
         val shop = view.findViewById<FloatingActionButton>(R.id.buttonShop)
 
+        viewModel.getAnimals()
+
         profile.setOnClickListener{
             navigateToProfileFragment()
         }
