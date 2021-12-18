@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.length.icthack3.R
+import com.length.icthack3.presentation.util.startActivityAndFinish
 import com.length.icthack3.presentation.viewModels.EnterViewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -26,12 +27,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         navigateToMainButton.setOnClickListener {
-            navigateToMainFragment()
-//            TODO("Make request on firebase to check authorize")
+            startActivityAndFinish(this, GameActivity::class.java)
         }
     }
 
-    private fun navigateToMainFragment() {
-
-    }
 }
