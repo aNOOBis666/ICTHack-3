@@ -16,7 +16,7 @@ class Application: MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         CoroutineScope(Dispatchers.IO).launch {
-            TODO("Singleton scoping")
+//            TODO("Singleton scoping")
         }
     }
 }

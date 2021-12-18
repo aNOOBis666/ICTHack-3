@@ -4,6 +4,6 @@ import androidx.lifecycle.ViewModel
 
 class EnterViewModel: ViewModel() {
     fun enterViewModelController(){
-        TODO("Enter screen view model")
+//        TODO("Enter screen view model")
     }
 }

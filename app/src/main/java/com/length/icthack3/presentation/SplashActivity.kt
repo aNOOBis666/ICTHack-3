@@ -1,12 +1,15 @@
 package com.length.icthack3.presentation
 
 import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import com.length.icthack3.R
+import android.content.Intent
 
-class MainActivity : AppCompatActivity() {
+import android.os.Bundle
+
+
+class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
+        startActivity(Intent(this@SplashActivity, MainActivity::class.java))
+        finish()
     }
 }

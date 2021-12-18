@@ -3,19 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashScreenFragment2">
+    app:startDestination="@id/enterFragment2">
 
-    <fragment
-        android:id="@+id/splashScreenFragment2"
-        android:name="com.length.icthack3.presentation.screens.SplashScreenFragment"
-        android:label="SplashScreenFragment" >
-        <action
-            android:id="@+id/action_splashScreenFragment2_to_mainFragment"
-            app:destination="@id/mainFragment" />
-        <action
-            android:id="@+id/action_splashScreenFragment2_to_enterFragment2"
-            app:destination="@id/enterFragment2" />
-    </fragment>
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.length.icthack3.presentation.screens.MainFragment"
