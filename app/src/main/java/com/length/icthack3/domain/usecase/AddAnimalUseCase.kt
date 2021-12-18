@@ -5,7 +5,7 @@ import com.length.icthack3.domain.repository.AnimalRepository
 
 class AddAnimalUseCase(private val repository: AnimalRepository) {
 
-    fun addAnimal(animal: Animal) {
+    suspend fun addAnimal(animal: Animal) {
         repository.addAnimal(animal)
     }
 }

@@ -4,12 +4,12 @@ import com.google.firebase.firestore.Exclude
 
 data class Animal(
     @Exclude
-    private val id: String,
+    val id: String,
 
-    private val ownerId: String,
-    private val type: String,
-    private val name: String,
-    private val income: Double = when (type) {
+    val ownerId: String,
+    val type: String,
+    val name: String,
+    val income: Double = when (type) {
         TYPE_PIG -> 1.0
         TYPE_GOOSE -> 2.0
         TYPE_GOAT -> 3.0

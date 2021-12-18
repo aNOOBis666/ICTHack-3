@@ -4,13 +4,13 @@ import com.google.firebase.firestore.Exclude
 
 class User(
     @Exclude
-    private val id: String,
+    val id: String,
 
-    private val username: String,
-    private val balance: Double,
-    private val token: String,
-    private val exchangeToken: String,
-    private val type: String
+    val username: String,
+    val balance: Double,
+    val token: String,
+    val exchangeToken: String,
+    val type: String
 ) {
     companion object {
         const val TABLE_NAME = "User"

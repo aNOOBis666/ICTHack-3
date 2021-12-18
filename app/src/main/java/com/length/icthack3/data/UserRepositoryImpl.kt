@@ -1,19 +1,35 @@
 package com.length.icthack3.data
 
+import com.google.firebase.firestore.FirebaseFirestore
 import com.length.icthack3.domain.model.User
 import com.length.icthack3.domain.repository.UserRepository
+import kotlinx.coroutines.tasks.await
 
-object UserRepositoryImpl : UserRepository {
+class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository {
 
-    override fun getUser(user: User): User {
-        TODO("Not yet implemented")
+    override suspend fun getUser(userId: String): User? {
+        return db.collection(User.TABLE_NAME)
+            .document(userId)
+            .get()
+            .await()
+            .toObject(User::class.java)
     }
 
-    override fun deleteUser(user: User) {
-        TODO("Not yet implemented")
+    override suspend fun addUser(user: User) {
+        db.collection(User.TABLE_NAME)
+            .document(user.id)
+            .set(user)
+            .await()
     }
 
-    override fun editUser(user: User) {
-        TODO("Not yet implemented")
+    override suspend fun deleteUser(user: User) {
+        db.collection(User.TABLE_NAME)
+            .document(user.id)
+            .delete()
+            .await()
+    }
+
+    override suspend fun editUser(user: User) {
+        addUser(user)
     }
 }

@@ -4,9 +4,11 @@ import com.length.icthack3.domain.model.User
 
 interface UserRepository {
 
-    fun getUser(user: User): User
+    suspend fun addUser(user: User)
 
-    fun deleteUser(user: User)
+    suspend fun deleteUser(user: User)
 
-    fun editUser(user: User)
+    suspend fun editUser(user: User)
+
+    suspend fun getUser(userId: String): User?
 }

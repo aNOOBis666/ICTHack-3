@@ -5,7 +5,7 @@ import com.length.icthack3.domain.repository.UserRepository
 
 class DeleteUserUseCase(private val repository: UserRepository) {
 
-    fun deleteUser(user: User) {
+    suspend fun deleteUser(user: User) {
         repository.deleteUser(user)
     }
 }

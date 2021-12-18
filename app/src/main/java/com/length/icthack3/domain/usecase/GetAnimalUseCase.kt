@@ -5,7 +5,7 @@ import com.length.icthack3.domain.repository.AnimalRepository
 
 class GetAnimalUseCase(private val repository: AnimalRepository) {
 
-    fun getAnimal(animal: Animal) {
-        repository.getAnimal(animal)
+    suspend fun getAnimal(animalId: String) {
+        repository.getAnimal(animalId)
     }
 }
