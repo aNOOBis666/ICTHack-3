@@ -1,4 +1,4 @@
-package com.length.icthack3.ui.main
+package com.length.icthack3.presentation
 
 import android.content.Context
 import androidx.multidex.MultiDex

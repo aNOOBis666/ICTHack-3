@@ -1,5 +1,6 @@
-package com.length.icthack3.ui.main.screens
+package com.length.icthack3.presentation.screens
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.length.icthack3.R
-import com.length.icthack3.ui.main.viewModels.SplashScreenViewModel
+import com.length.icthack3.presentation.viewModels.SplashScreenViewModel
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreenFragment: Fragment() {
     companion object {
         fun newInstance() = SplashScreenFragment()

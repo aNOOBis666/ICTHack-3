@@ -1,4 +1,4 @@
-package com.length.icthack3.ui.main.screens
+package com.length.icthack3.presentation.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.length.icthack3.R
-import com.length.icthack3.ui.main.viewModels.MainViewModel
-import com.length.icthack3.ui.main.viewModels.RegistrationViewModel
+import com.length.icthack3.presentation.viewModels.RegistrationViewModel
 
 
 class RegistrationFragment: Fragment() {

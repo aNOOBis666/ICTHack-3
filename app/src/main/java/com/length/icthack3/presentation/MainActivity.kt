@@ -1,8 +1,8 @@
-package com.length.icthack3
+package com.length.icthack3.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.length.icthack3.ui.main.screens.MainFragment
+import com.length.icthack3.R
 
 class MainActivity : AppCompatActivity() {
 

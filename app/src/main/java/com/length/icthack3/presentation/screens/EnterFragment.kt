@@ -1,4 +1,4 @@
-package com.length.icthack3.ui.main.screens
+package com.length.icthack3.presentation.screens
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,8 +11,7 @@ import androidx.navigation.Navigation
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.length.icthack3.R
-import com.length.icthack3.ui.main.viewModels.EnterViewModel
-import com.length.icthack3.ui.main.viewModels.RegistrationViewModel
+import com.length.icthack3.presentation.viewModels.EnterViewModel
 
 class EnterFragment: Fragment() {
     companion object {

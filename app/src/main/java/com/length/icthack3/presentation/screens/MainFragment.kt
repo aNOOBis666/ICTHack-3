@@ -1,4 +1,4 @@
-package com.length.icthack3.ui.main.screens
+package com.length.icthack3.presentation.screens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.length.icthack3.R
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
-import com.length.icthack3.ui.main.viewModels.MainViewModel
+import com.length.icthack3.presentation.viewModels.MainViewModel
 
 
 class MainFragment : Fragment() {

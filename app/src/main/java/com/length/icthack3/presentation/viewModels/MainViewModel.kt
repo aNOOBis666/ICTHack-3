@@ -1,4 +1,4 @@
-package com.length.icthack3.ui.main.viewModels
+package com.length.icthack3.presentation.viewModels
 
 import androidx.lifecycle.ViewModel
 

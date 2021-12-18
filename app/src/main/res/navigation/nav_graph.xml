@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashScreenFragment2"
-        android:name="com.length.icthack3.ui.main.screens.SplashScreenFragment"
+        android:name="com.length.icthack3.presentation.screens.SplashScreenFragment"
         android:label="SplashScreenFragment" >
         <action
             android:id="@+id/action_splashScreenFragment2_to_mainFragment"
@@ -18,12 +18,12 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.length.icthack3.ui.main.screens.MainFragment"
+        android:name="com.length.icthack3.presentation.screens.MainFragment"
         android:label="main_fragment"
         tools:layout="@layout/main_fragment" />
     <fragment
         android:id="@+id/registrationFragment2"
-        android:name="com.length.icthack3.ui.main.screens.RegistrationFragment"
+        android:name="com.length.icthack3.presentation.screens.RegistrationFragment"
         android:label="RegistrationFragment" >
         <action
             android:id="@+id/action_registrationFragment2_to_mainFragment"
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/enterFragment2"
-        android:name="com.length.icthack3.ui.main.screens.EnterFragment"
+        android:name="com.length.icthack3.presentation.screens.EnterFragment"
         android:label="EnterFragment" >
         <action
             android:id="@+id/action_enterFragment2_to_registrationFragment2"
