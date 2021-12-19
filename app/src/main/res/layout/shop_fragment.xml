@@ -11,8 +11,8 @@
         android:id="@+id/balance_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="32sp"
         android:layout_gravity="center_horizontal"
+        android:textSize="32sp"
         tools:text="50 монет" />
 
     <androidx.cardview.widget.CardView
@@ -34,6 +34,7 @@
                 android:layout_width="52dp"
                 android:layout_height="52dp"
                 android:padding="5sp"
+                app:srcCompat="@drawable/pig"
                 tools:src="@mipmap/ic_launcher" />
 
             <TextView
@@ -48,10 +49,10 @@
                 android:id="@+id/buy_pig_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:backgroundTint="@color/white"
-                android:textColor="@color/black"
+                android:layout_marginHorizontal="10sp"
                 android:text="@string/buy_str"
-                android:layout_marginHorizontal="10sp"/>
+                android:textColor="@color/black"
+                app:backgroundTint="@color/white" />
 
         </LinearLayout>
 
@@ -75,7 +76,8 @@
                 android:layout_width="52dp"
                 android:layout_height="52dp"
                 android:padding="5sp"
-                tools:src="@mipmap/ic_launcher" />
+                tools:src="@mipmap/ic_launcher"
+                app:srcCompat="@drawable/goose"/>
 
             <TextView
                 android:id="@+id/product_goose_text_view"
@@ -90,10 +92,10 @@
                 android:id="@+id/buy_goose_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:backgroundTint="@color/white"
-                android:textColor="@color/black"
+                android:layout_marginHorizontal="10sp"
                 android:text="@string/buy_str"
-                android:layout_marginHorizontal="10sp"/>
+                android:textColor="@color/black"
+                app:backgroundTint="@color/white" />
 
         </LinearLayout>
 
@@ -117,7 +119,7 @@
                 android:layout_width="52dp"
                 android:layout_height="52dp"
                 android:padding="5sp"
-                tools:src="@mipmap/ic_launcher" />
+                app:srcCompat="@drawable/goat" />
 
             <TextView
                 android:id="@+id/product_goat_text_view"
@@ -131,10 +133,10 @@
                 android:id="@+id/buy_goat_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:backgroundTint="@color/white"
-                android:textColor="@color/black"
+                android:layout_marginHorizontal="10sp"
                 android:text="@string/buy_str"
-                android:layout_marginHorizontal="10sp"/>
+                android:textColor="@color/black"
+                app:backgroundTint="@color/white" />
 
         </LinearLayout>
 
