@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.FirebaseFirestore
 import com.length.icthack3.domain.model.User
 import com.length.icthack3.domain.repository.UserRepository
+import com.length.icthack3.presentation.Application
 import kotlinx.coroutines.tasks.await
 
 class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository {
@@ -12,6 +13,8 @@ class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository {
     private val userList = MutableLiveData<List<User>>()
 
     private val userListSorted = sortedSetOf<User>({ p0, p1 -> p0.balance.compareTo(p1.balance) })
+
+    private val prefs = Application.prefs
 
     override suspend fun getUser(userId: String): User? {
         return db.collection(User.TABLE_NAME)
@@ -31,6 +34,7 @@ class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository {
             .addOnSuccessListener {
                 userListSorted.add(user)
                 updateList()
+                prefs.saveAndEditUser(user)
             }
             .await()
     }
@@ -55,6 +59,7 @@ class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository {
                 userListSorted.remove(oldUser)
                 userListSorted.add(user)
                 updateList()
+                prefs.saveAndEditUser(user)
             }
             .await()
     }
