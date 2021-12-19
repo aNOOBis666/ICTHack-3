@@ -17,6 +17,7 @@ class User(
 ) : Parcelable {
     companion object {
         const val TABLE_NAME = "User"
+        const val TABLE_ID = "id"
         const val TYPE_TEACHER = 1
         const val TYPE_STUDENT = 0
     }
