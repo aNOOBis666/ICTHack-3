@@ -22,7 +22,6 @@ class RateViewModel: ViewModel() {
 
     var usersData: LiveData<List<User>> = getUserListUseCase.getUserList()
 
-
     fun getUserList(){
         viewModelScope.launch(Dispatchers.IO) {
             getUserListAsyncUseCase.getUserListAsync()
