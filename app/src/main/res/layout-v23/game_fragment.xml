@@ -16,11 +16,11 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/white"
         app:borderWidth="0dp"
         android:outlineSpotShadowColor="@color/design_default_color_background"
 
-        android:foreground="@drawable/profile_logo_v2"
+        android:src="@drawable/profile_logo_v2"
+        app:maxImageSize="45sp"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
 
@@ -32,7 +32,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.896"
-        android:backgroundTint="@color/white"
         app:borderWidth="0dp"
         android:outlineSpotShadowColor="@color/design_default_color_background"
         android:src ="@drawable/shop_logo"
@@ -46,7 +45,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonProfile"
-        android:backgroundTint="@color/white"
         app:borderWidth="0dp"
         android:outlineSpotShadowColor="@color/design_default_color_background"
         android:src="@drawable/rate_logo"
@@ -57,12 +55,13 @@
 
     <androidx.cardview.widget.CardView android:layout_width="wrap_content"
         android:id="@+id/profileUserCard"
-        android:visibility="invisible"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"
         app:cardCornerRadius="20sp"
-        app:cardElevation="3sp">
+        app:cardElevation="3sp"
+        android:layout_margin="3sp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"

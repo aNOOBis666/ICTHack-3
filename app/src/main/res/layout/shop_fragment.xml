@@ -11,10 +11,9 @@
         android:id="@+id/balance_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:textSize="32sp"
         android:layout_gravity="center_horizontal"
-        tools:text="325.67 монет" />
+        tools:text="50 монет" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -43,14 +42,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/buy_pig_str"
-                android:textColor="@color/black"
                 android:textSize="16sp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buy_pig_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/buy_str" />
+                app:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:text="@string/buy_str"
+                android:layout_marginHorizontal="10sp"/>
 
         </LinearLayout>
 
@@ -81,15 +82,18 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/buy_pig_str"
-                android:textColor="@color/black"
+
+                android:text="@string/buy_goose_str"
                 android:textSize="16sp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buy_goose_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/buy_str" />
+                app:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:text="@string/buy_str"
+                android:layout_marginHorizontal="10sp"/>
 
         </LinearLayout>
 
@@ -121,14 +125,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/buy_goat_str"
-                android:textColor="@color/black"
                 android:textSize="16sp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/buy_goat_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/buy_str" />
+                app:backgroundTint="@color/white"
+                android:textColor="@color/black"
+                android:text="@string/buy_str"
+                android:layout_marginHorizontal="10sp"/>
 
         </LinearLayout>
 

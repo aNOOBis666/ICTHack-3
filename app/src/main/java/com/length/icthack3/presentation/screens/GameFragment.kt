@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.length.icthack3.R
@@ -58,9 +59,14 @@ class GameFragment : Fragment() {
 
 //    Replace with navigation by bottomNavBar
     private fun navigateToProfileFragment(profileInfo: CardView){
+    val mFadeInAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.nav_default_enter_anim)
+    val mFadeOutAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.nav_default_exit_anim)
+
     if (profileInfo.visibility == View.INVISIBLE) {
+        profileInfo.startAnimation(mFadeInAnimation)
         profileInfo.visibility = View.VISIBLE
     }else{
+        profileInfo.startAnimation(mFadeOutAnimation)
         profileInfo.visibility = View.INVISIBLE
     }
 
