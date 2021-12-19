@@ -50,8 +50,8 @@ class GameFragment : Fragment() {
 
 //    Replace with navigation by bottomNavBar
     private fun navigateToProfileFragment(){
-        val navController = Navigation.findNavController(requireActivity(), R.id.container)
-        navController.navigate(R.id.action_gameFragment_to_profileFragment)
+
+
     }
 
     private fun navigateToRateFragment(){

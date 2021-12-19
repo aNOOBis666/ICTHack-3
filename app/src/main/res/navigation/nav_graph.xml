@@ -11,23 +11,13 @@
         android:label="game_fragment"
         tools:layout="@layout/game_fragment" >
         <action
-            android:id="@+id/action_gameFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
-        <action
             android:id="@+id/action_gameFragment_to_rateFragment"
             app:destination="@id/rateFragment" />
         <action
             android:id="@+id/action_gameFragment_to_shopFragment"
             app:destination="@id/shopFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.length.icthack3.presentation.screens.ProfileFragment"
-        android:label="ProfileFragment" >
-        <action
-            android:id="@+id/action_profileFragment_to_gameFragment2"
-            app:destination="@id/gameFragment" />
-    </fragment>
+
     <fragment
         android:id="@+id/rateFragment"
         android:name="com.length.icthack3.presentation.screens.RateFragment"

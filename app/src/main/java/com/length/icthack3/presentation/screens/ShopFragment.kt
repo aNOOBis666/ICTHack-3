@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.length.icthack3.R
-import com.length.icthack3.presentation.viewModels.ProfileViewModel
 import com.length.icthack3.presentation.viewModels.ShopViewModel
 
 class ShopFragment: Fragment() {
