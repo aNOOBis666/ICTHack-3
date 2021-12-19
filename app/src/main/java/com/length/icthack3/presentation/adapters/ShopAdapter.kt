@@ -23,8 +23,6 @@ class ShopAdapter() :
 
 
         fun bind(animals: Animal) {
-            userName.text = animals
-            userPoints.text = animals
         }
     }
 
