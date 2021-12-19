@@ -20,6 +20,10 @@ class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository {
         return db.collection(User.TABLE_NAME)
             .document(userId)
             .get()
+            .addOnSuccessListener {
+                val user = it.toObject(User::class.java)
+                if (it.exists() && user != null) prefs.saveAndEditUser(user)
+            }
             .await()
             .toObject(User::class.java)
     }
@@ -34,6 +38,7 @@ class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository {
             .addOnSuccessListener {
                 userListSorted.add(user)
                 updateList()
+                user.id = it.id
                 prefs.saveAndEditUser(user)
             }
             .await()

@@ -8,16 +8,21 @@ import com.length.icthack3.presentation.util.startActivityAndFinish
 
 
 class SplashActivity : AppCompatActivity() {
+
+    private val prefs = Application.prefs
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         navigateFromSplash()
     }
 
     private fun navigateFromSplash() {
-        if (true) {
+        if (prefs.getUser() == null) {
             startActivityAndFinish(this, LoginActivity::class.java)
         } else {
             startActivityAndFinish(this, GameActivity::class.java)
         }
     }
+
+
 }

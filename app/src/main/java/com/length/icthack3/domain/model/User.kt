@@ -7,7 +7,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 class User(
     @Exclude
-    val id: String = "",
+    var id: String = "",
 
     val username: String = "",
     val balance: Double = 0.0,

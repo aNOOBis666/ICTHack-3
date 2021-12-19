@@ -7,12 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.length.icthack3.R
+import com.length.icthack3.domain.model.User
+import com.length.icthack3.presentation.util.randomId
 import com.length.icthack3.presentation.util.startActivityAndFinish
-import com.length.icthack3.presentation.viewModels.EnterViewModel
+import com.length.icthack3.presentation.viewModels.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
 
-    private val viewModel: EnterViewModel by viewModels()
+    private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +29,11 @@ class LoginActivity : AppCompatActivity() {
         }
 
         navigateToMainButton.setOnClickListener {
+            val newUser = User(
+                username = "user",
+                token = randomId(),
+                exchangeToken = randomId()
+            )
             startActivityAndFinish(this, GameActivity::class.java)
         }
     }
