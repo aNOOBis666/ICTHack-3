@@ -17,10 +17,6 @@ import com.length.icthack3.presentation.viewModels.GameViewModel
 
 class GameFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = GameFragment()
-    }
-
     private val viewModel: GameViewModel by viewModels()
 
     override fun onCreateView(
@@ -39,8 +35,11 @@ class GameFragment : Fragment() {
         val profileUsername = view.findViewById<TextView>(R.id.profileUsername)
         val profileUserBalance = view.findViewById<TextView>(R.id.profileBalance)
 
-        profileUsername.text = "Логин: Денис"
-        profileUserBalance.text = "Баланс: 50р"
+        viewModel.user.observe(this){
+            profileUsername.text = "Логин: ${viewModel.user.value?.token}"
+            profileUserBalance.text = "Баланс: ${viewModel.user.value?.balance}"
+        }
+
 
         viewModel.getAnimals()
 

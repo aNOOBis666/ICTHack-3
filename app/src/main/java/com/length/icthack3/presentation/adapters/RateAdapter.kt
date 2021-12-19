@@ -24,7 +24,7 @@ class RateAdapter() :
         val userPoints: TextView = itemView.findViewById(R.id.userPoints)
 
         fun bind(user: User) {
-            userName.text = user.username
+            userName.text = user.token
             userPoints.text = user.balance.toString()
         }
     }

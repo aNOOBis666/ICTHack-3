@@ -5,7 +5,7 @@ import com.google.firebase.firestore.Exclude
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class User(
+class User(
     @Exclude
     var id: String = "",
 
