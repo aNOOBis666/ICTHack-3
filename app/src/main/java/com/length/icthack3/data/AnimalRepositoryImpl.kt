@@ -14,16 +14,7 @@ class AnimalRepositoryImpl(private val db: FirebaseFirestore) : AnimalRepository
 
     private val animalListSorted = sortedSetOf<Animal>({ p0, p1 -> p0.type.compareTo(p1.type) })
 
-    override suspend fun getAnimalListForUser(user: User): LiveData<List<Animal>> {
-        val animals = db.collection(Animal.TABLE_NAME)
-            .get()
-            .addOnFailureListener {
-                it.printStackTrace()
-            }
-            .await()
-            .toObjects(Animal::class.java)
-        animalListSorted.addAll(animals)
-        updateList()
+    override fun getAnimalListForUser(): LiveData<List<Animal>> {
         return animalList
     }
 
@@ -67,6 +58,19 @@ class AnimalRepositoryImpl(private val db: FirebaseFirestore) : AnimalRepository
                 updateList()
             }
             .await()
+    }
+
+    override suspend fun getAnimalListForUserAsync(user: User) {
+        val animals = db.collection(Animal.TABLE_NAME)
+            .whereEqualTo(User.TABLE_ID, user.id)
+            .get()
+            .addOnFailureListener {
+                it.printStackTrace()
+            }
+            .await()
+            .toObjects(Animal::class.java)
+        animalListSorted.addAll(animals)
+        updateList()
     }
 
     private fun updateList() {

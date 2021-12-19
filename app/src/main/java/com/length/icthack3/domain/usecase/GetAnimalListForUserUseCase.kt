@@ -7,7 +7,7 @@ import kotlinx.coroutines.Dispatchers
 
 class GetAnimalListForUserUseCase(private val repository: AnimalRepository) {
 
-    suspend fun getAnimalListForUser(user: User) {
-        repository.getAnimalListForUser(user)
+    fun getAnimalListForUser() {
+        repository.getAnimalListForUser()
     }
 }
