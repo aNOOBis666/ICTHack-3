@@ -22,6 +22,7 @@
             android:layout_width="100pt"
             android:layout_height="wrap_content"
             android:autofillHints="username"
+            android:textColor="@color/white"
             android:inputType="text"
             android:textSize="12sp" />
     </com.google.android.material.textfield.TextInputLayout>

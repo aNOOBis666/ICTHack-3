@@ -17,15 +17,22 @@ class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository {
     private val prefs = Application.prefs
 
     override suspend fun getUser(userId: String): User? {
-        return db.collection(User.TABLE_NAME)
-            .document(userId)
-            .get()
-            .addOnSuccessListener {
-                val user = it.toObject(User::class.java)
-                if (it.exists() && user != null) prefs.saveAndEditUser(user)
-            }
-            .await()
-            .toObject(User::class.java)
+        try {
+            return db.collection(User.TABLE_NAME)
+                .document(userId)
+                .get()
+                .addOnSuccessListener {
+                    val user = it.toObject(User::class.java)
+                    if (it.exists() && user != null) prefs.saveAndEditUser(user)
+                }
+                .addOnFailureListener {
+                    it.printStackTrace()
+                }
+                .await()
+                .toObject(User::class.java)
+        } catch (t: IllegalArgumentException) {
+            return null
+        }
     }
 
     override fun getUserList(): LiveData<List<User>> {

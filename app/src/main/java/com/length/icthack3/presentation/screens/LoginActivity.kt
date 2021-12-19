@@ -2,13 +2,12 @@ package com.length.icthack3.presentation.screens
 
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.length.icthack3.R
-import com.length.icthack3.domain.model.User
-import com.length.icthack3.presentation.util.randomId
 import com.length.icthack3.presentation.util.startActivityAndFinish
 import com.length.icthack3.presentation.viewModels.LoginViewModel
 
@@ -24,18 +23,29 @@ class LoginActivity : AppCompatActivity() {
         val navigateToMainButton = findViewById<MaterialButton>(R.id.toMainButton)
         val navigateToRegistrationButton = findViewById<TextView>(R.id.toRegistrationFragment)
 
-        navigateToRegistrationButton.setOnClickListener {
-
+        navigateToMainButton.setOnClickListener {
+            viewModel.checkUserExistToLogin(userToken.text.toString())
         }
 
-        navigateToMainButton.setOnClickListener {
-            val newUser = User(
-                username = "user",
-                token = randomId(),
-                exchangeToken = randomId()
-            )
+        viewModel.userAuthResult.observe(this) {
+            if (it){
+                startActivityAndFinish(this, GameActivity::class.java)
+            }else{
+                toastOnWrongData()
+            }
+        }
+
+        navigateToRegistrationButton.setOnClickListener {
+            viewModel.addNewUser()
             startActivityAndFinish(this, GameActivity::class.java)
         }
+    }
+
+
+    private fun toastOnWrongData(){
+        val text = "Проверьте токен"
+        val duration = Toast.LENGTH_SHORT
+        Toast.makeText(this, text, duration).show()
     }
 
 }
