@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.cardview.widget.CardView
 import com.length.icthack3.R
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
@@ -32,11 +34,17 @@ class GameFragment : Fragment() {
         val profile = view.findViewById<FloatingActionButton>(R.id.buttonProfile)
         val rate = view.findViewById<FloatingActionButton>(R.id.buttonRate)
         val shop = view.findViewById<FloatingActionButton>(R.id.buttonShop)
+        val profileInfo = view.findViewById<CardView>(R.id.profileUserCard)
+        val profileUsername = view.findViewById<TextView>(R.id.profileUsername)
+        val profileUserBalance = view.findViewById<TextView>(R.id.profileBalance)
+
+        profileUsername.text = "Логин: Денис"
+        profileUserBalance.text = "Баланс: 50р"
 
         viewModel.getAnimals()
 
         profile.setOnClickListener{
-            navigateToProfileFragment()
+            navigateToProfileFragment(profileInfo)
         }
 
         rate.setOnClickListener{
@@ -49,8 +57,12 @@ class GameFragment : Fragment() {
     }
 
 //    Replace with navigation by bottomNavBar
-    private fun navigateToProfileFragment(){
-
+    private fun navigateToProfileFragment(profileInfo: CardView){
+    if (profileInfo.visibility == View.INVISIBLE) {
+        profileInfo.visibility = View.VISIBLE
+    }else{
+        profileInfo.visibility = View.INVISIBLE
+    }
 
     }
 
