@@ -34,11 +34,20 @@ class GameFragment : Fragment() {
         val profileInfo = view.findViewById<CardView>(R.id.profileUserCard)
         val profileUsername = view.findViewById<TextView>(R.id.profileUsername)
         val profileUserBalance = view.findViewById<TextView>(R.id.profileBalance)
+        val cardView = view.findViewById<CardView>(R.id.cardVIew)
+        val counter = view.findViewById<TextView>(R.id.counter)
+        var ct = 0
+        counter.text = ct.toString()
+        cardView.setOnClickListener {
+            ct += 1
+            counter.text = ct.toString()
+        }
 
         viewModel.user.observe(this){
             profileUsername.text = "Логин: ${viewModel.user.value?.token}"
             profileUserBalance.text = "Баланс: ${viewModel.user.value?.balance}"
         }
+
 
 
         viewModel.getAnimals()
