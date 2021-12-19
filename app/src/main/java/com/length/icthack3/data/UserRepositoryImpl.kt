@@ -1,5 +1,6 @@
 package com.length.icthack3.data
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.firestore.FirebaseFirestore
@@ -12,7 +13,7 @@ class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository {
 
     private val userList = MutableLiveData<List<User>>()
 
-    private val userListSorted = sortedSetOf<User>({ p0, p1 -> p0.balance.compareTo(p1.balance) })
+    private val userListSorted = sortedSetOf<User>({ p0, p1 -> p1.balance.compareTo(p0.balance) })
 
     private val prefs = Application.prefs
 
@@ -23,6 +24,7 @@ class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository {
                 .get()
                 .addOnSuccessListener {
                     val user = it.toObject(User::class.java)
+                    user?.id = userId
                     if (it.exists() && user != null) prefs.saveAndEditUser(user)
                 }
                 .addOnFailureListener {
@@ -64,7 +66,7 @@ class UserRepositoryImpl(private val db: FirebaseFirestore) : UserRepository {
 
     override suspend fun editUser(user: User) {
         db.collection(User.TABLE_NAME)
-            .document(user.id)
+            .document(user.token)
             .set(user)
             .addOnSuccessListener {
                 val oldUser = userListSorted.find { it.id == user.id }

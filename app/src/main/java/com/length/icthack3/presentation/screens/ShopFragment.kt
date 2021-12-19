@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.length.icthack3.R
+import com.length.icthack3.domain.model.Animal
+import com.length.icthack3.domain.model.User
 import com.length.icthack3.presentation.viewModels.ShopViewModel
 
 class ShopFragment : Fragment() {
@@ -35,8 +37,22 @@ class ShopFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.updateUser()
         initViews(view)
         initBackPress()
+        buyPigButton.setOnClickListener{
+            viewModel.buyAnimal(Animal.TYPE_PIG)
+        }
+        buyGoatButton.setOnClickListener{
+            viewModel.buyAnimal(Animal.TYPE_GOAT)
+        }
+        buyGooseButton.setOnClickListener{
+            viewModel.buyAnimal(Animal.TYPE_GOOSE)
+        }
+
+        viewModel.user.observe(this){
+            changeUIBalance()
+        }
     }
 
     private fun initViews(view: View) {
@@ -59,5 +75,9 @@ class ShopFragment : Fragment() {
                 }
             }
         requireActivity().onBackPressedDispatcher.addCallback(this@ShopFragment, callback)
+    }
+
+    private fun changeUIBalance(){
+        balanceTextView.text = viewModel.user.value!!.balance.toString()
     }
 }

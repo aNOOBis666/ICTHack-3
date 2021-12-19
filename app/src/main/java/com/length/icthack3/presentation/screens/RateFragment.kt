@@ -55,7 +55,7 @@ class RateFragment: Fragment() {
 
     private fun initRecyclerView(){
         recyclerView.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         recyclerView.adapter = adapter
     }
 }

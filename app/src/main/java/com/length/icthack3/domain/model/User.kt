@@ -5,12 +5,12 @@ import com.google.firebase.firestore.Exclude
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-class User(
+data class User(
     @Exclude
     var id: String = "",
 
     val username: String = "",
-    val balance: Double = 0.0,
+    var balance: Double = 0.0,
     val token: String = "",
     val exchangeToken: String = "",
     val type: Int = TYPE_STUDENT
